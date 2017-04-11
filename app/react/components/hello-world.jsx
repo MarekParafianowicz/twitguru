@@ -1,10 +1,11 @@
 import React from 'react';
+import HashForm from './hash-form.jsx'
 
 class HelloWorld extends React.Component {
   render() {
     return(
       <div>
-        <p>Hello World {this.props.name}</p>
+        <HashForm />
       </div>
     );
   }
