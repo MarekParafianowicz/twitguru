@@ -8,7 +8,7 @@
 /.bundle
 
 # Ignore app secrets
-/config/application.yml
+/config/secrets.yml
 
 # Ignore all logfiles and tempfiles.
 /log/*
