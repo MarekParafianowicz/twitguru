@@ -7,17 +7,14 @@ class HashForm extends React.Component {
     super(props);
     this.handleChange = this.handleChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
-    this.state = {hashTag: ''};
   }
 
   handleChange(e) {
-    // this.setState({hashTag: e.target.value});
     this.props.onHashTagChange(e.target.value);
   }
 
   handleSubmit(e) {
-    this.setState({hashTag: this.props.hashTag});
-    console.log(this.state.hashTag);
+    console.log(`Props: ${this.props.hashTag}`);
     e.preventDefault();
   }
 

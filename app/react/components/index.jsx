@@ -1,7 +1,7 @@
 import React from 'react';
 import HashForm from './hash-form.jsx'
 
-class HelloWorld extends React.Component {
+class Index extends React.Component {
   constructor(props) {
     super(props);
     this.handleHashTagChange = this.handleHashTagChange.bind(this);
@@ -25,4 +25,4 @@ class HelloWorld extends React.Component {
   }
 }
 
-export default HelloWorld;
+export default Index;
