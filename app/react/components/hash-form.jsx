@@ -1,5 +1,4 @@
 import React from 'react';
-import BoilingVerdict from './boiling-verdict.jsx'
 
 
 class HashForm extends React.Component {

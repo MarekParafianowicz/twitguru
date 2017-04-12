@@ -1,22 +1,23 @@
 import React from 'react';
 
 class TweetColumn extends React.Component {
-  // constructor(props) {
-  //   super(props);
-  // }
+  constructor(props) {
+    super(props);
+    this.state = { tweets: '' }
+  }
 
-  // handleChange(e) {
-  //   this.props.onHashTagChange(e.target.value);
-  // }
-
-  // handleSubmit(e) {
-  //   console.log(`Props: ${this.props.hashTag}`);
-  //   e.preventDefault();
-  // }
+  componentDidMount() {
+    $.getJSON('/tweets', (response) => {
+      this.setState({ tweets: response })
+    });
+  }
 
   render() {
     return (
-      <p>Test {this.props.hashTag}</p>
+      <div>
+        <p>Test {this.props.hashTag}</p>
+        <p>JSON: {this.state.tweets.test}</p>
+      </div>
     );
   }
 }
