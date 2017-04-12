@@ -1,5 +1,6 @@
 import React from 'react';
 import HashForm from './hash-form.jsx'
+import TweetColumn from './tweet-column.jsx'
 
 class Index extends React.Component {
   constructor(props) {
@@ -20,6 +21,7 @@ class Index extends React.Component {
         <HashForm
           hashTag={hashTag}
           onHashTagChange={this.handleHashTagChange} />
+        <TweetColumn hashTag={hashTag} />
       </div>
     );
   }
