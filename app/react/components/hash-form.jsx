@@ -15,6 +15,7 @@ class HashForm extends React.Component {
 
   handleSubmit(e) {
     console.log(`Props: ${this.props.hashTag}`);
+    this.props.onHashTagSubmit(this.props.hashTag);
     e.preventDefault();
   }
 

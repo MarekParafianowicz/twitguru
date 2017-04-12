@@ -6,11 +6,20 @@ class Index extends React.Component {
   constructor(props) {
     super(props);
     this.handleHashTagChange = this.handleHashTagChange.bind(this);
-    this.state = {hashTag: ''};
+    this.handleHashTagSubmit = this.handleHashTagSubmit.bind(this);
+    this.state = {
+      hashTag: '',
+      submitedHashTag: '',
+    };
   }
 
   handleHashTagChange(hashTag) {
     this.setState({hashTag: hashTag})
+  }
+
+  handleHashTagSubmit(hashTag) {
+    this.setState({submitedHashTag: hashTag})
+    console.log(`State: ${this.state.submitedHashTag}`);
   }
 
   render() {
@@ -20,8 +29,9 @@ class Index extends React.Component {
       <div>
         <HashForm
           hashTag={hashTag}
-          onHashTagChange={this.handleHashTagChange} />
-        <TweetColumn hashTag={hashTag} />
+          onHashTagChange={this.handleHashTagChange}
+          onHashTagSubmit={this.handleHashTagSubmit} />
+        <TweetColumn hashTag={this.state.submitedHashTag} />
       </div>
     );
   }
