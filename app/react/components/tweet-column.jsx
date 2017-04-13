@@ -3,12 +3,19 @@ import React from 'react';
 class TweetColumn extends React.Component {
   constructor(props) {
     super(props);
-    this.state = { tweets: '' }
+    this.getTweets = this.getTweets.bind(this);
+    this.state = { tweets: '' };
   }
 
   componentDidMount() {
-    $.getJSON('/tweets', (response) => {
-      this.setState({ tweets: response })
+    this.getTweets();
+  }
+
+  getTweets() {
+    fetch('/tweets.json').then((response) => {
+      return response.json();
+    }).then((json) => {
+      this.setState({ tweets: json.test })
     });
   }
 
@@ -16,7 +23,7 @@ class TweetColumn extends React.Component {
     return (
       <div>
         <p>Test {this.props.hashTag}</p>
-        <p>JSON: {this.state.tweets.test}</p>
+        <p>JSON: {this.state.tweets}</p>
       </div>
     );
   }

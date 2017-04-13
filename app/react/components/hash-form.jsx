@@ -19,7 +19,7 @@ class HashForm extends React.Component {
   }
 
   render() {
-    const hashTag = this.props.hashTag;
+    const { hashTag } = this.props;
     return (
       <form onSubmit={this.handleSubmit}>
         <label>

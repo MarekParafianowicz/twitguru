@@ -7,7 +7,6 @@ class Index extends React.Component {
     super(props);
     this.handleHashTagChange = this.handleHashTagChange.bind(this);
     this.handleHashTagSubmit = this.handleHashTagSubmit.bind(this);
-    this.generateHashTagColumns = this.generateHashTagColumns.bind(this);
     this.state = {
       hashTag: '',
       submitedHashTag: [],
@@ -15,7 +14,7 @@ class Index extends React.Component {
   }
 
   handleHashTagChange(hashTag) {
-    this.setState({hashTag: hashTag})
+    this.setState({hashTag})
   }
 
   handleHashTagSubmit(hashTag) {
@@ -24,13 +23,8 @@ class Index extends React.Component {
     this.setState({submitedHashTag: prevState})
   }
 
-  generateHashTagColumns() {
-    const hashArray = this.state.submitedHashTag;
-    return hashArray.map((hash) => <TweetColumn key={hash} hashTag={hash} />);
-  }
-
   render() {
-    const hashTag = this.state.hashTag;
+    const { hashTag, submitedHashTag } = this.state;
     return(
       <div>
         <HashForm
@@ -38,7 +32,7 @@ class Index extends React.Component {
           onHashTagChange={this.handleHashTagChange}
           onHashTagSubmit={this.handleHashTagSubmit} />
         <div>
-          {this.generateHashTagColumns()}
+          {submitedHashTag.map((hash) => <TweetColumn key={hash} hashTag={hash} />)}
         </div>
       </div>
     );
